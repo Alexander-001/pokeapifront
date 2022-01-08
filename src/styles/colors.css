@@ -1,0 +1,101 @@
+:root {
+    --green: #93C817;
+    --green-light: #87E05A;
+    --orange: #FF9300;
+    --violet-light: #CA90FF;
+    --violet-dark: #9219FF;
+    --blue-light: #6BD4FF;
+    --blue-dark: #017CAF;
+    --gray: #C0C4C5;
+    --gray-flight: #B4DFDF;
+    --brown-light: #CAA576;
+    --brown-dark: #B97927;
+    --yellow: #E1E100;
+    --red-light: #FF7A7A;
+    --red-dark: #D92121;
+    --pink: #FF81F0;
+    --black: #676367;
+}
+
+.content-types {
+    display: flex;
+    justify-content: start;
+    width: 100%;
+    align-items: center;
+}
+
+.content-types div {
+    margin: 0px 0px 12px 10px;
+    padding: 5px;
+    width: 25%;
+    text-align: center;
+    border-radius: 5px;
+    border: none;
+    color: rgb(8, 39, 71);
+    font-family: 'Cookie';
+    font-size: 23px;
+}
+
+.content-types .green {
+    background-color: var(--green);
+}
+
+.content-types .green-light {
+    background-color: var(--green-light);
+}
+
+.content-types .orange {
+    background-color: var(--orange);
+}
+
+.content-types .violet-light {
+    background-color: var(--violet-light);
+}
+
+.content-types .violet-dark {
+    background-color: var(--violet-dark);
+}
+
+.content-types .blue-light {
+    background-color: var(--blue-light);
+}
+
+.content-types .blue-dark {
+    background-color: var(--blue-dark);
+}
+
+.content-types .gray {
+    background-color: var(--gray);
+}
+
+.content-types .gray-flight {
+    background-color: var(--gray-flight);
+}
+
+.content-types .brown-light {
+    background-color: var(--brown-light);
+}
+
+.content-types .brown-dark {
+    background-color: var(--brown-dark);
+}
+
+.content-types .yellow {
+    background-color: var(--yellow);
+}
+
+.content-types .red-light {
+    background-color: var(--red-light);
+}
+
+.content-types .red-dark {
+    background-color: var(--red-dark);
+}
+
+.content-types .pink {
+    background-color: var(--pink);
+}
+
+.content-types .black {
+    background-color: var(--black);
+}

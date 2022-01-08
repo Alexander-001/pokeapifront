@@ -1,0 +1,3 @@
+export const ACTION_SERVICE_GET_ALL_POKEMON = "ACTION_SERVICE_GET_ALL_POKEMON";
+
+export const PATH_API_GET_ALL_POKEMON = "/api/pokemons";

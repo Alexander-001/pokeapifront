@@ -1,0 +1,132 @@
+.modal-dialog {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	max-width: 1060px !important;
+	outline: none;
+}
+
+.modal-dialog .modal-content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-color: #4f5d68;
+	outline: 0;
+	width: 200px;
+	padding: 20px 56px 50px;
+	border-radius: 50px;
+}
+
+.modal-header {
+	position: absolute;
+    right: 30px;
+    top: 20px;
+}
+
+.icon-close {
+    font-size: 40px;
+    cursor: pointer;
+    color: rgb(8, 39, 71);;
+}
+
+.modal-body {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+	align-items: center;
+}
+
+.modal-body .content-image {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-body .icon-info {
+	margin: 20px 0px 20px 0px;
+    font-size: 80px;
+	color: rgb(3, 24, 46);
+}
+
+.modal-body .title-error-modal {
+	font-size: 50px;
+}
+
+.modal-body img {
+    width: 70%;
+}
+
+.modal-body h1 {
+	font-size: 32px;
+    font-family: 'Cookie';
+    margin: 10px 0px 10px 0px;
+    color: rgb(3, 24, 46);
+}
+
+.modal-body p {
+	text-align: center;
+    font-family: 'Permanent Marker';
+    color: rgb(3, 24, 46);
+    font-size: 40px;
+}  
+
+.content-image .modal {
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.content-image .modal div {
+	font-size: 30px;
+}  
+
+.content-stats {
+	background-color: #13475c;
+    height: 400px;
+    width: 280px;
+    border: none;
+    border-radius: 5px;
+}
+
+.content-info-stats {
+	height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.content-info-stats h1 {
+	margin-left: 20px;
+	color: rgb(185, 185, 185);
+}
+
+
+@media (min-width: 1080px) {
+    .modal-dialog .modal-content {
+		width: 680px;
+    }
+
+	.modal-header {
+		right: 60px;
+		top: 40px;
+	}
+
+	.modal-body img {
+		width: 50%;
+	}
+
+	.modal-body h1 {
+		font-size: 60px;
+	}
+
+	.content-stats {
+		height: 300px;
+		width: 730px;
+	}
+
+	.modal-dialog .modal-content {
+		padding: 20px 56px 112px;
+	}
+}
