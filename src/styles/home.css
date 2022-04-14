@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #454e52;
+    background: url('../images/low-poly-grid-haikei.svg')
 }
   
 .container-home {
@@ -30,7 +30,7 @@ body {
 }
 
 .card {
-    background-color: #4f5d68;
+    background-color: #5a8dba;
     margin: 10px;
     display: flex;
     flex-direction: column;
