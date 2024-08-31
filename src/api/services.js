@@ -1,9 +1,9 @@
 import axios from "axios";
-import { RequestServices } from "./request";
 import {
   ACTION_SERVICE_GET_ALL_POKEMON,
   PATH_API_GET_ALL_POKEMON,
 } from "../constants/constants";
+import { RequestServices } from "./request";
 
 export const ServicesAPI = {
   getAllPokemonsService: async function (params) {

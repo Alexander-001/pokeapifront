@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react";
-import "../styles/home.css";
-import "../styles/colors.css";
-import PokeLogo from "../images/logo.png";
-import Loader from "../components/Loader";
-import ErrorModal from "../components/ErrorModal";
-import PokemonModal from "../components/PokemonModal";
+import React, { useEffect, useRef, useState } from "react";
 import { ServicesAPI } from "../api/services";
+import ErrorModal from "../components/ErrorModal";
+import Loader from "../components/Loader";
+import PokemonModal from "../components/PokemonModal";
 import { ACTION_SERVICE_GET_ALL_POKEMON } from "../constants/constants";
+import { useDrag } from "../hooks/useDrag";
+import PokeLogo from "../images/logo.png";
+import "../styles/colors.css";
+import "../styles/home.css";
 
 const Home = () => {
   const [listPokemons, setListPokemons] = useState([]);
@@ -14,8 +15,14 @@ const Home = () => {
   const [showModalError, setShowModalError] = useState(false);
   const [showModalPokemon, setShowModalPokemon] = useState(false);
   const [showLoader, setShowLoader] = useState(false);
-  const [onCountChange, setOnCountChange] = useState(20);
+  const [onCountChange, setOnCountChange] = useState(8);
   const [pokemonData, setPokemonData] = useState({});
+
+  const draggableRef = useRef(null);
+
+  const { position, handleMouseDown } = useDrag({
+    ref: draggableRef,
+  });
 
   const callServicePokemon = async (limit) => {
     try {
@@ -76,9 +83,9 @@ const Home = () => {
   };
 
   const openPokemonModal = (value, types, stats) => {
-    const image = value.getAttribute("image");
-    const name = value.getAttribute("name");
-    const id = value.getAttribute("id");
+    const image = value.parentElement.parentElement.getAttribute("image");
+    const name = value.parentElement.parentElement.getAttribute("name");
+    const id = value.parentElement.parentElement.getAttribute("id");
     const dataModal = { image, name, id, types, stats };
     setPokemonData(dataModal);
     setShowModalPokemon(true);
@@ -184,29 +191,41 @@ const Home = () => {
                   return (
                     <div
                       className="card"
+                      ref={draggableRef}
+                      style={{
+                        top: position.y,
+                        left: position.x,
+                      }}
                       key={idx}
                       image={front_default}
                       name={name.charAt(0).toUpperCase() + name.slice(1)}
                       id={id.toString().padStart(3, "0")}
-                      onClick={(e) =>
-                        openPokemonModal(e.currentTarget, types, stats)
-                      }
                     >
-                      <img src={front_default} alt="poke-logo" />
-                      <div className="content-info">
-                        <h1>{name.charAt(0).toUpperCase() + name.slice(1)}</h1>
-                        <p>#{id.toString().padStart(3, "0")}</p>
-                      </div>
-                      <div className="content-types">
-                        {types.map((poke, idx) => {
-                          const { name } = poke.type;
-                          const pokemonClass = getPokemonClass(name);
-                          return (
-                            <div key={idx} className={pokemonClass}>
-                              {name.charAt(0).toUpperCase() + name.slice(1)}
-                            </div>
-                          );
-                        })}
+                      <div onMouseDown={handleMouseDown}>
+                        <img
+                          src={front_default}
+                          alt="poke-logo"
+                          onClick={(e) =>
+                            openPokemonModal(e.currentTarget, types, stats)
+                          }
+                        />
+                        <div className="content-info">
+                          <h1>
+                            {name.charAt(0).toUpperCase() + name.slice(1)}
+                          </h1>
+                          <p>#{id.toString().padStart(3, "0")}</p>
+                        </div>
+                        <div className="content-types">
+                          {types.map((poke, idx) => {
+                            const { name } = poke.type;
+                            const pokemonClass = getPokemonClass(name);
+                            return (
+                              <div key={idx} className={pokemonClass}>
+                                {name.charAt(0).toUpperCase() + name.slice(1)}
+                              </div>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
                   );
